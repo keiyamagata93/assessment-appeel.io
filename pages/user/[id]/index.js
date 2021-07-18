@@ -1,15 +1,22 @@
 import Head from 'next/head';
+import { Box } from '@chakra-ui/react';
 import Userinfo from '../../../components/UserInfo';
 import Repos from '../../../components/Repos';
+import NotFound from '../../../components/NotFound';
 
 const user = ({ id, userData, reposData }) => {
 	return (
 		<>
 			<Head>
-				<title>GitHub api | {userData.login}</title>
+				<title>
+					GitHub | {userData.message !== 'Not Found' ? userData.login : 'User Not Found'}
+				</title>
 			</Head>
-			<Userinfo user={userData} />
-			<Repos id={id} repos={reposData} />
+			<Box as="main">
+				{userData.message === 'Not Found' && <NotFound />}
+				{userData.message !== 'Not Found' && <Userinfo user={userData} />}
+				{reposData.message !== 'Not Found' && <Repos id={id} repos={reposData} />}
+			</Box>
 		</>
 	);
 };
@@ -25,9 +32,12 @@ export const getServerSideProps = async context => {
 	});
 	const userData = await res1.json();
 
-	const res2 = await fetch(`https://api.github.com/users/${id}/repos`);
+	const res2 = await fetch(`https://api.github.com/users/${id}/repos`, {
+		headers: { Authorization: process.env.GITHUB_TOKEN },
+	});
 	const reposData = await res2.json();
-
+	// console.log(userData);
+	// console.log(reposData);
 	return { props: { id, userData, reposData } };
 };
 

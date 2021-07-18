@@ -10,16 +10,22 @@ const UserInfo = ({ user }) => {
 			</Box>
 			<Center>
 				<Box w="150px" bg="gray.100" p={5} textAlign="center" borderRadius="10" mr={5}>
-					<Text fontSize="2rem">{user.public_repos}</Text>
-					<Text>Repositories</Text>
+					<Text fontSize="2rem" color="gray.700">
+						{user.public_repos}
+					</Text>
+					<Text color="gray.700">Repositories</Text>
 				</Box>
 				<Box w="150px" bg="gray.100" p={5} textAlign="center" borderRadius="10" mr={5}>
-					<Text fontSize="2rem">{user.followers}</Text>
-					<Text>Followers</Text>
+					<Text fontSize="2rem" color="gray.700">
+						{user.followers}
+					</Text>
+					<Text color="gray.700">Followers</Text>
 				</Box>
 				<Box w="150px" bg="gray.100" p={5} textAlign="center" borderRadius="10">
-					<Text fontSize="2rem">{user.following}</Text>
-					<Text>Following</Text>
+					<Text fontSize="2rem" color="gray.700">
+						{user.following}
+					</Text>
+					<Text color="gray.700">Following</Text>
 				</Box>
 			</Center>
 		</Box>

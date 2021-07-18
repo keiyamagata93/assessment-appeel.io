@@ -1,5 +1,5 @@
 import NextLink from 'next/link';
-import { Box, Center, Grid, Heading, Link } from '@chakra-ui/react';
+import { Box, Center, Grid, Heading } from '@chakra-ui/react';
 
 const Repos = ({ id, repos }) => {
 	return (
@@ -8,15 +8,18 @@ const Repos = ({ id, repos }) => {
 				Repositories
 			</Heading>
 			<Grid templateColumns="repeat(3, 1fr)" gap={5}>
-				{repos.map(repo => (
-					<NextLink key={repo.id} href={`/user/${id}/${repo.name}/commits`}>
-						<a>
-							<Center bg="gray.200" h="100px" borderRadius="10">
-								<Heading fontSize="l">{repo.name}</Heading>
-							</Center>
-						</a>
-					</NextLink>
-				))}
+				{repos.message !== 'Not Found' &&
+					repos.map(repo => (
+						<NextLink key={repo.id} href={`/user/${id}/${repo.name}/commits`}>
+							<a>
+								<Center h="100px" borderRadius="10" bg="gray.100">
+									<Heading fontSize="l" color="gray.700">
+										{repo.name}
+									</Heading>
+								</Center>
+							</a>
+						</NextLink>
+					))}
 			</Grid>
 		</Box>
 	);

@@ -23,8 +23,8 @@ const Home = () => {
 				<title>Technische assessment | Appeel.io</title>
 			</Head>
 
-			<Flex as="main" alignItems="center" flexDir="column" w="100vw">
-				<Icon as={FaGithub} boxSize="60px" mt="200px" mb="5" />
+			<Flex as="main" as="section" justify="center" align="center" flexDir="column" h="100vh">
+				<Icon as={FaGithub} boxSize="60px" mb="5" />
 				<Heading mb="10">Find your GitHub Profile</Heading>
 				<Flex as="form" w="400px" onSubmit={handleSubmit}>
 					<Input
