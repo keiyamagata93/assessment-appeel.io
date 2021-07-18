@@ -11,7 +11,7 @@ const Repos = ({ id, repos }) => {
 				{repos.map(repo => (
 					<NextLink key={repo.id} href={`/user/${id}/${repo.name}/commits`}>
 						<a>
-							<Center bg="gray.900" h="100px" borderRadius="10">
+							<Center bg="gray.200" h="100px" borderRadius="10">
 								<Heading fontSize="l">{repo.name}</Heading>
 							</Center>
 						</a>
