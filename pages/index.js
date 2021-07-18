@@ -20,13 +20,13 @@ const Home = () => {
 	return (
 		<div>
 			<Head>
-				<title>Technische assessment | GitHub api</title>
+				<title>Technische assessment | Appeel.io</title>
 			</Head>
 
 			<Flex as="main" alignItems="center" flexDir="column" w="100vw">
 				<Icon as={FaGithub} boxSize="60px" mt="200px" mb="5" />
-				<Heading mb="5">Find your GitHub account</Heading>
-				<Flex as="form" w="50%" onSubmit={handleSubmit}>
+				<Heading mb="10">Find your GitHub Profile</Heading>
+				<Flex as="form" w="400px" onSubmit={handleSubmit}>
 					<Input
 						placeholder="GitHub Username"
 						value={username}
